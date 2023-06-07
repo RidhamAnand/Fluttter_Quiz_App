@@ -8,4 +8,12 @@ Dynamic Quiz Questions: The app fetches quiz questions from a data source and di
 
 Multiple-choice Options: Each question is presented with multiple-choice options, allowing the user to select their answer.
 
-Result Summary: After completing the quiz, users are directed to the result screen, which displays a summary of their performance. The summary includes the total number of questions attempted, the number of correct answers.
+Result Summary: After completing the quiz, users are directed to the result screen, which displays a summary of their performance. The summary includes the total number of questions attempted, the number of correct answers, and the percentage of correct answers.
+
+Requirements
+Flutter SDK: Make sure you have Flutter SDK installed on your machine. You can download it from the official Flutter website.
+
+Dart: The app is built using the Dart programming language, which is bundled with Flutter.
+
+Contributing
+Contributions to the Flutter Quiz App are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
