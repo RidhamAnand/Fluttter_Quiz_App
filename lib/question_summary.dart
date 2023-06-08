@@ -14,13 +14,33 @@ class QuestionSummary extends StatelessWidget {
         child: Column(
           children: summaryData.map(
             (data) {
-              return Row(children: [
+              final isCorrectAns = data['userAnswer'] == data['correctAnswer'];
+              Color indexColor = Colors.red;
+
+              if (isCorrectAns) {
+                indexColor = Colors.green;
+              }
+
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                 Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Text(
-                    ((data['questionIndex'] as int) + 1).toString(),
-                    style:  GoogleFonts.poppins(
-                        fontSize: 20, fontWeight: FontWeight.bold),
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    width: 30,
+                    height: 30,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: indexColor,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Text(
+                      ((data['questionIndex'] as int) + 1).toString(),
+                      style: GoogleFonts.poppins(
+                          fontSize: 20, fontWeight: FontWeight.bold,
+                      color: Colors.white,),
+                    ),
                   ),
                 ),
                 Expanded(
@@ -62,6 +82,7 @@ class QuestionSummary extends StatelessWidget {
           ).toList(),
         ),
       ),
+
     );
   }
 }

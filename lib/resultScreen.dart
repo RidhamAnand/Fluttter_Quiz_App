@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'answer_button.dart';
 import 'data/questions.dart';
 import 'quiz.dart';
@@ -33,6 +34,13 @@ final class ResultScreen extends StatelessWidget {
         })
         .length
         .toString();
+    final accuracy = (((summaryData.where((data) {
+                  return (data['userAnswer'] == data['correctAnswer']);
+                }).length) /
+                (questions.length)) *
+            100)
+        .round()
+        .toString();
 
     return SizedBox(
       width: double.infinity,
@@ -52,19 +60,35 @@ final class ResultScreen extends StatelessWidget {
               height: 30,
             ),
             QuestionSummary(getSummaryData()),
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Accuracy: $accuracy%",
+              style: GoogleFonts.roboto(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
             OutlinedButton.icon(
               onPressed: restartFunc,
               icon: const Icon(
                 Icons.restart_alt_sharp,
                 color: Colors.white,
               ),
-              label: const Text('Restart',style: TextStyle(
-                color: Colors.white,
-              ),),
-            style: OutlinedButton.styleFrom(
-              backgroundColor: Colors.blue,
-            ),)
+              label: const Text(
+                'Restart',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.blue,
+              ),
+            )
           ],
         ),
       ),
